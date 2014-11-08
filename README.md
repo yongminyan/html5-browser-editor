@@ -11,7 +11,7 @@ I design this project as a B/S one which even involves inter-process communicati
 3. Another process which interacts with the user (GTK select file), reading/writing data from/into local file
 
 ## Techniques/Programming Languages involved 
-HTML5, Websockets, Linux IPC, GTK, JavaScript, C/C++
+HTML5, Websockets, Linux Sockets, IPC, GTK, JavaScript, C/C++
 
 ## How to build and run the test
 
