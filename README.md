@@ -25,9 +25,11 @@ HTML5, Websockets, Linux IPC, GTK, JavaScript, C/C++
 some of the screenshots are:
 
 The front end web page looks like the following
+
 ![alt tag](https://github.com/yongminyan/html5-browser-editor/blob/master/screenshots.d/mainPageUI.png)
 
 After you open the testcase1.txt file, the content of that file will be loaded into the textarea as follow
+
 ![alt tag](https://github.com/yongminyan/html5-browser-editor/blob/master/screenshots.d/openFile.png)
 
 
@@ -36,5 +38,5 @@ After you open the testcase1.txt file, the content of that file will be loaded i
 Some future work in my mind:
 
 1. Add threads into the backend
-2. remove the sockets between 
-3. refactoring the ugly parts of the code
+2. remove the sockets, try other IPC (pipes, shared memeory, .etc) 
+3. refactoring the ugly and hard coded parts of the code
