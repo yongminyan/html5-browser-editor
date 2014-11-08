@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                    window.WebSocket = window.WebSocket || window.MozWebSocket;
+                    // why don't we use ws:// 
+                    // but choose http protocal????? yes, it is because we want to do cloud scan
+                    var websocket = new WebSocket('ws://127.0.0.1:9527', 'my_protocol');
+
+                    websocket.onopen = function () {
+                        $('h1').css('color', 'green');
+                    };
+
+                    websocket.onerror = function () {
+                        $('h1').css('color', 'red');
+                    };
+
+                    websocket.onmessage = function (message) {
+                        console.log(message.data);
+                        $('#filecontent').val(message.data);
+                    };
+
+                    $('#OpenFile').click(function(e) {
+                        e.preventDefault();
+                        websocket.send("load");
+                    });
+
+                    $('#SaveFile').click(function(e) {
+                        e.preventDefault();
+                        websocket.send("store:" + $('#filecontent').val());
+                    });
+            });
+        </script>
+    </head>
+    <body>
+        <center>
+        <h1>WebSockets Test</h1>
+        <textarea cols="120" rows="20" style="width:240px; height:160px;" id="filecontent"></textarea>
+        <br/>
+        <button id="OpenFile">Open File</button>
+        <button id="SaveFile">Save File</button>
+        </center>
+    </body>
+</html>
